@@ -1,16 +1,14 @@
-class BanController < ApplicationController
+class BansController < ApplicationController
     def index
         bans = Ban.all
         render json: bans
     end
 
-    def show
-        ban = Ban.find_by(UUID: params[:uuid])
-        render json: ban
-    end
-
     def create
         ban = Ban.new(ban_params)
+        if ban.save
+            render json: ban
+        end
     end
 
     private
