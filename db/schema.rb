@@ -10,20 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_193945) do
+ActiveRecord::Schema.define(version: 2020_01_31_194750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bans", force: :cascade do |t|
-    t.string "UUID"
+    t.string "uuid"
     t.string "username"
-    t.string "ip"
+    t.string "ip_address"
     t.text "reason"
     t.string "duration"
+    t.integer "flag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "flag", default: false
+  end
+
+  create_table "flags", force: :cascade do |t|
+    t.string "uuid"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
