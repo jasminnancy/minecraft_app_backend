@@ -1,4 +1,4 @@
-class CreateBan < ActiveRecord::Migration[6.0]
+class CreateBans < ActiveRecord::Migration[6.0]
   def change
     create_table :bans do |t|
       t.string :UUID
